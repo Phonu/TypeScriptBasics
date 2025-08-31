@@ -76,7 +76,25 @@ A. STAR Format Answer = Situation -> Task -> Action -> Result
         # Use JSI/TurboModules with strong typing. Document interfaces. Sync often.
 
 Q: How do you plan sprints and allocate tasks in a cross-platform team?
-A: 
+A: When working with cross-platform teams like designers, product managers and backend developers, clear and open
+communincation is key to ensuring everyone is aligned and project moves smoothly.
+
+With Designer:
+    Regular feedback on design.
+    When design got finalized, tools like figma make this process transparent.
+
+With Product Owner:
+    Defining requirements: ensure that fully understand the product requirements, objective on the process.
+    Frequently work with product owner to prioritize features and tasks. We offen tools like JIRA, KANBAN Board.
+
+With Backend Developer: 
+    Crucial to have good documentation for API contracts and endpoints.
+    Sync up on architecture and data flow and dependencies.
+
+
+General Tips:
+    -Should have regular sync up calls.
+    -Should keep stakeholders on mail loops by sending regular work process and status updates.
 
 
 Q: What’s your strategy when onboarding new team members?
