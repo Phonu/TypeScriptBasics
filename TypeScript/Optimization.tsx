@@ -25,9 +25,13 @@ const ActionItemDataUnchanged = (
 
 export default React.memo(ActionItem, ActionItemDataUnchanged);
 
+/** ---------------------------------------------------------------------------------------------------- */
+
 // Code Optimization & Obfuscation on iOS
 // On Android → ProGuard/R8 for shrinking & obfuscation.
 // On iOS → Dead Code Stripping, Symbol Stripping, App Thinning, and optional third-party obfuscators.
+
+/** ---------------------------------------------------------------------------------------------------- */
 
 /**
  * 
@@ -43,8 +47,9 @@ Generated in: Xcode > Archives > dSYMs.
 Needed for crash reporting tools like Firebase Crashlytics, Sentry, Bugsnag, etc.
  */
 
+/** ---------------------------------------------------------------------------------------------------- */
+
 /**
- 
 📌 What is why-did-you-render?
 
 A React Dev Tool that logs to the console when a component re-renders unnecessarily.
