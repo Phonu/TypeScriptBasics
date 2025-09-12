@@ -54,32 +54,37 @@ Tools:
 - Fastlane (most popular, integrates with App Store & Play Store)
 - EAS (Expo Application Services) if using Expo
 - AppCenter (Microsoft)
-- Example Fastlane setup:
+
+**_ Example Fastlane setup: _**
+
 - iOS (fastlane/Fastfile)
-- default_platform(:ios)
 
 ```
-platform :ios do
-desc "Build and upload to TestFlight"
-lane :beta do
-build_app(
-scheme: "MyApp",
-export_method: "app-store"
-)
-upload_to_testflight
-end
-end
+default_platform(:ios)
 
+platform :ios do
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    build_app(
+      scheme: "MyApp",
+      export_method: "app-store"
+    )
+    upload_to_testflight
+  end
+end
+```
 
 Android (fastlane/Fastfile)
 
+```
 platform :android do
-desc "Build and upload to Play Store"
-lane :beta do
-gradle(task: "assembleRelease")
-upload_to_play_store(track: "internal")
+  desc "Build and upload to Play Store"
+  lane :beta do
+    gradle(task: "assembleRelease")
+    upload_to_play_store(track: "internal")
+  end
 end
-end
+
 ```
 
 🔹 3. Secure Secrets (API keys, signing configs)
@@ -202,8 +207,9 @@ end
 - name: Build iOS
   run: bundle exec fastlane beta
   env:
-  MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-  APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+    MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+    APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+
 ```
 
 ✅ Sample Interview Answer
