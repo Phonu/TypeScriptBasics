@@ -99,3 +99,111 @@ best practices like centralizing flags, having a kill switch, and cleaning up ol
 This approach ensures safe rollouts, A/B testing, and faster iteration without waiting for app store approvals.”
 
 ---
+
+### Q. SOLID PRINCIPLE
+
+👉
+
+S - Single Responsibility Principle
+O - Open for extension and Closed for Modification
+L - Liskov Substituation Principle
+I - Interface Segregation Principle
+D - Dependency Inversion Principle
+
+“In React Native, I apply SOLID principles to keep my code modular and scalable. For example, I use SRP by separating UI components from API services, OCP by extending base UI elements instead of modifying them, and LSP by designing interchangeable service classes (AsyncStorage vs Keychain). ISP ensures I split large service interfaces into smaller ones, and DIP allows me to inject API clients instead of tightly coupling my business logic with Axios or Fetch. This makes the app easier to maintain, test, and scale.”
+
+### Q. SOLID PRINCIPLE FOLDER STRUCTURE
+
+react-native-app/
+│── src/
+│ │── api/ # Dependency Inversion (DIP)
+│ │ ├── ApiClient.ts # Abstract API client interface
+│ │ ├── AxiosApi.ts # Concrete implementation (axios)
+│ │ └── index.ts
+│ │
+│ │── services/ # Business logic (SRP, ISP)
+│ │ ├── AuthService.ts # Handles only authentication
+│ │ ├── UserService.ts # Handles only user data
+│ │ └── StorageService.ts
+│ │
+│ │── models/ # Entities / Types (OCP)
+│ │ ├── User.ts
+│ │ ├── Auth.ts
+│ │ └── index.ts
+│ │
+│ │── components/ # Reusable UI (SRP, OCP)
+│ │ ├── common/
+│ │ │ ├── Button.tsx
+│ │ │ ├── Input.tsx
+│ │ │ └── Card.tsx
+│ │ ├── user/
+│ │ │ ├── UserCard.tsx
+│ │ │ └── UserList.tsx
+│ │ └── index.ts
+│ │
+│ │── screens/ # Feature-specific screens
+│ │ ├── Auth/
+│ │ │ ├── LoginScreen.tsx
+│ │ │ └── RegisterScreen.tsx
+│ │ ├── User/
+│ │ │ ├── ProfileScreen.tsx
+│ │ │ └── SettingsScreen.tsx
+│ │ └── Home/
+│ │ └── HomeScreen.tsx
+│ │
+│ │── navigation/ # Navigation (Stack, Tabs, Drawer)
+│ │ ├── AppNavigator.tsx
+│ │ └── AuthNavigator.tsx
+│ │
+│ │── context/ # Context API (state management)
+│ │ ├── AuthContext.tsx
+│ │ └── ThemeContext.tsx
+│ │
+│ │── store/ # Redux/Zustand/MobX if used
+│ │ ├── slices/
+│ │ │ ├── authSlice.ts
+│ │ │ └── userSlice.ts
+│ │ └── store.ts
+│ │
+│ │── hooks/ # Custom hooks (reuse logic)
+│ │ ├── useAuth.ts
+│ │ └── useNetwork.ts
+│ │
+│ │── utils/ # Helper functions (pure functions)
+│ │ ├── validators.ts
+│ │ ├── formatters.ts
+│ │ └── constants.ts
+│ │
+│ │── assets/ # Images, fonts, icons
+│ │ ├── images/
+│ │ └── fonts/
+│ │
+│ └── App.tsx # Entry point
+│
+└── package.json
+
+🎯 How This Enforces SOLID
+
+SRP (Single Responsibility):
+Components handle UI only, services handle API/business logic.
+
+OCP (Open/Closed):
+BaseButton can be extended (PrimaryButton, SecondaryButton) without modifying it.
+
+LSP (Liskov Substitution):
+Any ApiClient implementation (AxiosApi, FetchApi, MockApi) can replace each other.
+
+ISP (Interface Segregation):
+Separate AuthService, UserService, StorageService instead of one giant service.
+
+DIP (Dependency Inversion):
+Services depend on ApiClient interface, not directly on Axios or Fetch.
+
+### Q. Golden Rules for clean code:
+
+SOC => Sepration of concerns.
+DYC => Document your code.
+DRY => Don't repeat yourself.
+KISS => Keep it Stupid Simple
+TDD => Test Driven Development
+YAGNI => You arn't gonna need it.

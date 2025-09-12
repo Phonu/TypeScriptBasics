@@ -6,8 +6,6 @@
 
 ### Q. How do you manage offline support and sync for a news reading app?
 
-👉 If your app suddenly starts crashing on iOS after an update, how would you debug and fix it?
-
 Bonus:
 What’s new in React Native 0.73+ that you find exciting?
 What are your thoughts on Expo vs bare React Native?
@@ -15,6 +13,8 @@ How do you manage monorepos in large-scale React Native projects?
 Would you like sample answers or a mock interview based on these questions?
 
 ### Q. How would you investigate and fix an app crashing when scrolling through image lists
+
+### Q. If your app suddenly starts crashing on iOS after an update, how would you debug and fix it?
 
 👉
 1.Check Crash Logs
@@ -32,3 +32,11 @@ JS stack trace if it's a JavaScript crash
 ### Q. How would you approach storing sensitive user data securely, considering platform-specific solutions?
 
 👉
+Data Security:
+
+- We can use keychain for iOS and keyStore for android. We can use react-native-encryption to encrypt sensitive data.
+- use biometrics for senstive actions like touch or face-ID detection.
+  Network Security:
+  We should use https url for the apis
+  senetize the logs, but console the senstive data.
+  SSL pinning for the certificates

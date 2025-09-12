@@ -1,6 +1,6 @@
 hoisting
 deep copying and swallow copy
-closures and function currying
+closures, currying, memoize, debounce and higher order functions
 javascript is synchronous or async
 Event loop
 lexical Scope
@@ -13,6 +13,8 @@ React Navigation and React native Navigation
 State management tools Redux
 
 UI and Unit Testing
+
+SOLID PRINCIPLE
 
 fetch an api and show the list of titles on the FlatList
 https://jsonplaceholder.typicode.com/todos

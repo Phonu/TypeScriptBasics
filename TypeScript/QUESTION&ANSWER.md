@@ -75,6 +75,8 @@ console.log(obj1.address.city); // ✅ "Delhi"
 **Answer:**
 A closure is created when a function "remembers" variables from its lexical scope, even after that scope has finished executing.
 
+Useful for creating private variables
+
 ```javascript
 function outer() {
   let count = 0;
@@ -91,7 +93,50 @@ console.log(counter()); // 2
 console.log(counter()); // 3
 ```
 
----
+✅ Even though outer() has finished, the inner() function still remembers count.
+
+```
+function createUser(name) {
+  let password = "secret123"; // private
+
+  return {
+    getName: () => name,
+    checkPassword: (pass) => pass === password
+  };
+}
+
+const user = createUser("Kunal");
+console.log(user.getName());        // "Kunal"
+console.log(user.checkPassword("x")); // false
+console.log(user.password);          // undefined ❌
+```
+
+```
+function multiplier(x) {
+  return function(y) {
+    return x * y;
+  };
+}
+
+const double = multiplier(2);
+console.log(double(5)); // 10
+```
+
+```
+function delayedMessage(msg, delay) {
+  setTimeout(() => {
+    console.log(msg);
+  }, delay);
+}
+
+delayedMessage("Hello after 2s", 2000);
+```
+
+Closure = function + lexical scope it remembers.
+
+Useful for private state, callbacks, and currying.
+
+## Can cause memory leaks if not handled carefully (e.g., holding references in long-lived closures).
 
 ## Q4. What is Function Currying?
 
@@ -233,5 +278,7 @@ extraReducers: (builder) => {
 ```
 
 ---
+
+👉 "React Native doesn’t support fixed positioning like the web. We usually achieve similar behavior using absolute with respect to the screen or by rendering elements at the root level (e.g., portals for modals, floating buttons)."
 
 # ✅ End of Interview Prep Guide

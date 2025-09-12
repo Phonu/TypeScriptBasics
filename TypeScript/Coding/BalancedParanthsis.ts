@@ -44,13 +44,7 @@ function checkBalanced(input) {
     }
   }
 
-  if (stack.length > 0) {
-    return false;
-  } else {
-    return true;
-  }
-
-  console.log("result ===>", stack.length);
+  return stack.length === 0;
 }
 
 let input = "{}{}}";
